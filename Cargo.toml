@@ -1,0 +1,10 @@
+[package]
+name = "portscan-rust"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap = { version = "4.5.4", features = ["derive"] }
+rayon = "1.10.0"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
