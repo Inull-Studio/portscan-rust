@@ -18,7 +18,7 @@ struct Args {
     #[arg(short, long, default_value_t = String::from("21,22,23,25,80,135,445,3389,7890,8080"))]
     ports: String,
     /// 线程数
-    #[arg(short, long, default_value_t = 500)]
+    #[arg(short, long, default_value_t = 200)]
     threads: i32,
 }
 fn main() {
