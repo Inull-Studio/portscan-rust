@@ -18,7 +18,7 @@ struct Args {
     #[arg(short, long, default_value_t = String::from("21,22,23,25,80,135,445,3389,7890,8080"))]
     ports: String,
     /// 线程数
-    #[arg(short, long, default_value_t = 100)]
+    #[arg(short, long, default_value_t = 50)]
     threads: i32,
 }
 fn main() {
@@ -52,7 +52,7 @@ fn main() {
                 SocketAddr::new(IpAddr::from_str(&host).unwrap(), port.try_into().unwrap());
             let opennum = Arc::clone(&opennum);
             pool.exec(Box::new(move || {
-                let stream = TcpStream::connect_timeout(&socket, Duration::from_millis(2000));
+                let stream = TcpStream::connect_timeout(&socket, Duration::from_millis(3000));
                 if stream.is_ok() {
                     println!("Open {}", port);
                     let mut num = opennum.lock().unwrap();
